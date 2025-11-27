@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Color Theme Suggester",
+  "version": "1.0",
+  "description": "Automatically suggests beautiful color themes for websites and allows live preview.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Color Theme Suggester"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
