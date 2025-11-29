@@ -193,7 +193,7 @@ Contributions are welcome! Here's how you can help:
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/color-theme-extension.git
+git clone https://github.com/shviper1/color-theme-generator-extention.git
 
 # Load the extension in Chrome
 # 1. Open chrome://extensions/
