@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Advanced Color Theme Studio",
   "version": "2.0",
-  "description": "AI-powered color theme generator with harmony tools, accessibility checker, and live preview. Extract colors and create beautiful themes instantly!",
+  "description": " color theme generator with harmony tools, accessibility checker, and live preview. Extract colors and create beautiful themes instantly!",
   "permissions": [
     "activeTab",
     "storage",
@@ -17,8 +17,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["themes.js", "contentScript.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "themes.js",
+        "contentScript.js"
+      ],
       "run_at": "document_start"
     }
   ]

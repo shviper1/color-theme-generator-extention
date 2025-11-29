@@ -253,6 +253,5 @@ If you find this extension useful, please:
 
 ---
 
-**Made with ❤️ and 🎨 by passionate developers**
 
 Enjoy creating beautiful, accessible color themes! 🚀
