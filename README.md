@@ -241,7 +241,6 @@ MIT License - feel free to use this project for personal or commercial purposes.
 Having issues? Want to suggest a feature?
 
 - Create an issue on GitHub
-- Email: support@example.com
 
 ## 🌟 Show Your Support
 
