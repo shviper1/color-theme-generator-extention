@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="logo.png" alt="Advanced Color Theme Studio Logo" width="128" height="128">
+</div>
+
 # 🎨 Advanced Color Theme Studio
 
 An AI-powered Chrome extension that revolutionizes web color theming with advanced features, accessibility tools, and beautiful visual design.

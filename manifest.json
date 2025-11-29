@@ -3,6 +3,11 @@
   "name": "Advanced Color Theme Studio",
   "version": "2.0",
   "description": " color theme generator with harmony tools, accessibility checker, and live preview. Extract colors and create beautiful themes instantly!",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "permissions": [
     "activeTab",
     "storage",
@@ -13,7 +18,12 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Color Theme Suggester"
+    "default_title": "Advanced Color Theme Studio",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   },
   "content_scripts": [
     {
