@@ -1,8 +1,5 @@
 // contentScript.js - Content script to inject styles and handle theme application
 
-// Import theme functions (since it's a content script, we can use importScripts)
-importScripts('themes.js');
-
 // Function to apply a theme to the current page
 function applyTheme(themeId) {
     const theme = getTheme(themeId);
@@ -10,14 +7,24 @@ function applyTheme(themeId) {
 
     const css = generateThemeCSS(theme);
 
-    // Remove existing theme styles
-    removeThemeStyles();
+    const applyStyles = () => {
+        removeThemeStyles();
 
-    // Inject new styles
-    const style = document.createElement('style');
-    style.id = 'color-theme-suggester-styles';
-    style.textContent = css;
-    document.head.appendChild(style);
+        const style = document.createElement('style');
+        style.id = 'color-theme-suggester-styles';
+        style.textContent = css;
+        document.head.appendChild(style);
+
+        if (document.body) {
+            document.body.classList.add('color-theme-suggester-active');
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyStyles, { once: true });
+    } else {
+        applyStyles();
+    }
 
     console.log(`Applied theme: ${theme.name}`);
 }
@@ -27,6 +34,15 @@ function removeThemeStyles() {
     const existingStyle = document.getElementById('color-theme-suggester-styles');
     if (existingStyle) {
         existingStyle.remove();
+    }
+
+    const highlightStyle = document.getElementById('highlight-styles');
+    if (highlightStyle) {
+        highlightStyle.remove();
+    }
+
+    if (document.body) {
+        document.body.classList.remove('color-theme-suggester-active');
     }
 }
 
@@ -48,23 +64,6 @@ async function autoLoadTheme() {
         console.error('Error loading saved theme:', error);
     }
 }
-
-// Listen for messages from popup
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.action === 'applyTheme') {
-        applyTheme(request.themeId);
-        sendResponse({ success: true });
-    } else if (request.action === 'resetTheme') {
-        resetTheme();
-        sendResponse({ success: true });
-    } else if (request.action === 'saveTheme') {
-        // Save theme for this URL
-        chrome.storage.sync.set({ [window.location.hostname]: request.themeId }, () => {
-            sendResponse({ success: true });
-        });
-        return true; // Keep message channel open for async response
-    }
-});
 
 // Auto-load theme when DOM is ready
 if (document.readyState === 'loading') {

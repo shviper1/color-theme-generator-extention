@@ -1,97 +1,258 @@
-# Color Theme Suggester Chrome Extension
+# 🎨 Advanced Color Theme Studio
 
-A beautiful Chrome extension that automatically suggests stunning color themes for any website and allows users to preview them live without breaking the site's layout.
+An AI-powered Chrome extension that revolutionizes web color theming with advanced features, accessibility tools, and beautiful visual design.
 
-## Features
+![Version](https://img.shields.io/badge/version-2.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Chrome](https://img.shields.io/badge/Chrome-Extension-yellow.svg)
 
-🎨 **Color Theme Generator**
+## ✨ Features
 
-- 5 beautiful theme palettes: Light & Fresh, Dark & Modern, Pastel Dream, Modern Minimal, Vibrant Energy
-- Each palette includes background, text, primary, secondary, and accent colors
+### 🎯 Core Features
 
-🔄 **Live Preview Mode**
+- **16+ Beautiful Preset Themes**: Curated color palettes including Ocean Breeze, Sunset Glow, Neon Nights, Cyberpunk, and more
+- **Custom Theme Creator**: Build your own themes with an intuitive color picker interface
+- **Live Preview**: See changes in real-time before applying
+- **One-Click Application**: Apply themes instantly to any website
+- **Persistent Themes**: Save your favorite themes per website
 
-- Instantly apply themes to the current website using CSS injection
-- Preserves website layout - only colors change
-- Smooth transitions and animations
+### 🤖 AI-Powered Features
 
-🎯 **Color Picker Panel**
+#### Smart Theme Generator
+- **Mood-Based Generation**: Choose from 6 moods (Professional, Energetic, Calm, Playful, Elegant, Bold)
+- **Description-to-Theme**: Describe your desired theme in plain text and let AI create it
+- **Auto-Generated Palettes**: AI analyzes and creates harmonious color combinations
 
-- Elegant popup interface with theme cards
-- Color preview boxes for each theme
-- Apply, Save, and Reset functionality
+#### Accessibility Optimizer
+- **WCAG Compliance Checker**: Automatically checks contrast ratios
+- **Auto-Fix Contrast**: One-click solution to meet AA/AAA standards
+- **Detailed Reports**: See contrast ratios and accessibility scores
+- **Real-time Validation**: Live contrast checking while you design
 
-💾 **Save & Auto-load**
+### 🌈 Color Tools
 
-- Save selected themes for specific websites using Chrome storage
-- Automatically applies saved themes when visiting saved websites
+#### Color Harmony Generator
+- **Complementary**: Create classic opposite color schemes
+- **Analogous**: Generate harmonious adjacent colors
+- **Triadic**: Build balanced three-color palettes
+- **Tetradic**: Create rich four-color combinations
+- **Monochromatic**: Generate variations of a single hue
 
-## Installation
+#### Color Extractor
+- **Website Analysis**: Extract dominant colors from any webpage
+- **Smart Sampling**: Analyzes background, text, and accent colors
+- **Instant Application**: Convert extracted colors into a complete theme
+- **Frequency-based Sorting**: Shows most-used colors first
 
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode" in the top right corner
-4. Click "Load unpacked" and select the `color-theme-extension` folder
-5. The extension should now appear in your extensions list
+#### Smart Gradient Generator
+- **AI-Assisted**: Creates beautiful gradients from your theme
+- **Multiple Directions**: Diagonal, horizontal, vertical options
+- **Smooth Transitions**: Professional-quality color interpolation
 
-## How It Works
+### 🎨 Visual Features
 
-1. **Theme Generation**: The extension uses predefined aesthetic color palettes inspired by Material Design and modern web trends.
+- **Premium Design**: Modern, glassmorphic UI with smooth animations
+- **Micro-interactions**: Delightful hover effects and transitions
+- **Color Visualizations**: Interactive color boxes with hover previews
+- **Live Contrast Badges**: Real-time accessibility feedback
+- **Responsive Layout**: Works perfectly at any size
 
-2. **Live Preview**: When you click "Apply Theme" in the popup, the extension injects CSS variables and styles into the current webpage using `chrome.scripting` API.
+### 🛠️ Advanced Tools
 
-3. **Saving Themes**: Themes are saved per domain using `chrome.storage.sync`, allowing cross-device synchronization.
+- **Import/Export**: Share themes via JSON
+- **Element Highlighting**: Visualize which elements will be affected
+- **Toast Notifications**: Clear feedback for every action
+- **Color Name Detection**: AI-powered color naming (e.g., "Vibrant Blue")
+- **Copy to Clipboard**: Quick copy of color codes
 
-4. **Auto-loading**: On page load, the content script checks for saved themes and applies them automatically.
+## 🚀 Installation
 
-## Permissions
+### From Source
 
-The extension requires the following permissions:
+1. Clone or download this repository
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked"
+5. Select the extension directory
+6. The Advanced Color Theme Studio icon will appear in your toolbar
 
-- `activeTab`: To access and modify the current tab's content
-- `storage`: To save and retrieve theme preferences
-- `scripting`: To inject CSS styles into web pages
+### From Chrome Web Store
 
-## File Structure
+*Coming soon*
+
+## 📖 Usage Guide
+
+### Quick Start
+
+1. **Click the extension icon** in your Chrome toolbar
+2. **Choose a preset theme** from the Presets tab
+3. **Click "Apply"** to see it on the current webpage
+4. **Click "Save"** to make it permanent for that website
+
+### Creating Custom Themes
+
+1. Go to the **Custom** tab
+2. Use color pickers to choose your colors
+3. Use **Harmony Generator** for instant color combinations
+4. Watch the **Live Preview** update
+5. Check **Contrast Badges** for accessibility
+6. Click **Apply Custom Theme**
+
+### Extracting Colors
+
+1. Navigate to any website
+2. Go to the **Extract** tab
+3. Click **Extract Colors**
+4. Browse the extracted palette
+5. Click **Apply Extracted Theme** to use them
+
+### AI Studio
+
+1. Go to the **AI Studio** tab
+2. Choose from multiple AI features:
+   - Select a **mood** for instant generation
+   - **Optimize contrast** for better accessibility
+   - Describe your theme in **natural language**
+   - Generate **smart gradients**
+
+## 🎨 Available Preset Themes
+
+| Theme | Description |
+|-------|-------------|
+| Light & Fresh | Clean white background with blue accents |
+| Dark & Modern | Sleek dark theme with purple highlights |
+| Pastel Dream | Soft, gentle colors for comfort |
+| Modern Minimal | Professional and clean design |
+| Vibrant Energy | Bold, energetic color scheme |
+| Ocean Breeze | Calming blues and aquas |
+| Sunset Glow | Warm oranges and ambers |
+| Forest Green | Natural earth tones |
+| Neon Nights | Futuristic neon colors on dark |
+| Royal Purple | Elegant purple palette |
+| Cherry Blossom | Soft pink romantic theme |
+| Midnight Blue | Deep blue professional theme |
+| Arctic Frost | Cool blue and white |
+| Autumn Maple | Warm autumn colors |
+| Cyberpunk | High-contrast neon theme |
+| Lavender Dreams | Soft purple tones |
+
+## 🔧 Technical Details
+
+### Architecture
 
 ```
 color-theme-extension/
-├── manifest.json          # Extension manifest (Manifest V3)
-├── popup.html             # Popup interface HTML
-├── popup.css              # Popup styling (Tailwind-inspired)
-├── popup.js               # Popup logic and event handlers
-├── background.js          # Service worker (minimal for MV3)
-├── contentScript.js       # Content script for style injection
-├── themes.js              # Theme generation and CSS logic
-└── README.md              # This file
+├── popup.html          # Main UI structure
+├── popup.css           # Premium styling with animations
+├── popup.js            # Main application logic
+├── colorUtils.js       # Color manipulation utilities
+├── aiEngine.js         # AI-powered generation
+├── themes.js           # Preset theme definitions
+├── contentScript.js    # Page injection logic
+├── background.js       # Service worker
+└── manifest.json       # Extension configuration
 ```
 
-## Usage
+### Color Utilities
 
-1. Click the extension icon in your Chrome toolbar
-2. Browse the available theme cards
-3. Click "Apply Theme" to preview a theme on the current page
-4. Click "Save Theme" to remember the theme for this website
-5. Use "Reset to Original" to remove applied themes
+- **RGB/HSL/Hex Conversions**: Complete color space transformations
+- **WCAG Calculation**: Precise contrast ratio computation
+- **Luminance Detection**: Relative luminance for accessibility
+- **Color Manipulation**: Lighten, darken, saturate, desaturate
+- **Harmony Algorithms**: Mathematical color theory implementation
 
-## Development
+### AI Engine
 
-To modify the extension:
+- **Keyword Analysis**: Natural language processing for theme description
+- **Mood Mapping**: Pre-defined mood-to-palette associations
+- **Accessibility Fixing**: Iterative contrast optimization
+- **Gradient Generation**: HSL-based smooth interpolation
+- **Variation Suggestions**: Algorithmic theme variations
 
-1. Make changes to the source files
-2. Go to `chrome://extensions/`
-3. Click the refresh button on the extension card
-4. Test your changes on a webpage
+## 🎯 Accessibility
 
-## Browser Compatibility
+This extension prioritizes web accessibility:
 
-- Chrome 88+ (Manifest V3 support)
-- Edge 88+ (Chromium-based)
+- ✅ **WCAG 2.1 Compliant**: All tools follow WCAG guidelines
+- ✅ **Contrast Checker**: Real-time AA/AAA validation
+- ✅ **Auto-Fix**: One-click accessibility improvements
+- ✅ **Color Blind Friendly**: Considers various color vision types
+- ✅ **Semantic HTML**: Proper structure for screen readers
 
-## Contributing
+## 🤝 Contributing
 
-Feel free to submit issues and enhancement requests!
+Contributions are welcome! Here's how you can help:
 
-## License
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This project is open source and available under the [MIT License](LICENSE).
+### Development Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/color-theme-extension.git
+
+# Load the extension in Chrome
+# 1. Open chrome://extensions/
+# 2. Enable Developer mode
+# 3. Click "Load unpacked"
+# 4. Select the project directory
+```
+
+## 📝 Changelog
+
+### Version 2.0 (Latest)
+- ✨ Added AI-powered theme generation
+- ✨ Implemented mood-based color palettes
+- ✨ Added color harmony generator (Complementary, Analogous, Triadic, etc.)
+- ✨ Implemented WCAG accessibility checker
+- ✨ Added auto-contrast fix feature
+- ✨ Added color extraction from webpages
+- ✨ Implemented gradient generator
+- ✨ Added 11 new preset themes (total 16)
+- 🎨 Completely redesigned UI with premium animations
+- 🎨 Added glassmorphic design elements
+- 🎨 Improved color picker interface
+- 🛠️ Added import/export functionality
+- 🛠️ Added element highlighting
+- 🛠️ Implemented toast notifications
+
+### Version 1.0
+- Initial release with 5 preset themes
+- Basic color application
+- Theme saving per website
+
+## 📄 License
+
+MIT License - feel free to use this project for personal or commercial purposes.
+
+## 🙏 Acknowledgments
+
+- Color theory based on modern design principles
+- WCAG guidelines from W3C
+- Inspired by Material Design, Dribbble, and modern UI trends
+- Built with passion for great design and accessibility
+
+## 📧 Support
+
+Having issues? Want to suggest a feature?
+
+- Create an issue on GitHub
+- Email: support@example.com
+
+## 🌟 Show Your Support
+
+If you find this extension useful, please:
+- ⭐ Star the repository
+- 🐛 Report bugs
+- 💡 Suggest new features
+- 📢 Share with others
+
+---
+
+**Made with ❤️ and 🎨 by passionate developers**
+
+Enjoy creating beautiful, accessible color themes! 🚀

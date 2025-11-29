@@ -3,19 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Theme Suggester</title>
+  <title>Advanced Color Theme Studio</title>
   <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1 class="title">🎨 Color Themes</h1>
-    <div id="theme-grid" class="theme-grid">
-      <!-- Theme cards will be dynamically generated -->
+    <!-- Header with Tabs -->
+    <div class="header">
+      <h1 class="title">🎨 Color Theme Studio</h1>
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="presets">Presets</button>
+        <button class="tab-btn" data-tab="custom">Custom</button>
+        <button class="tab-btn" data-tab="extract">Extract</button>
+        <button class="tab-btn" data-tab="ai">AI Studio</button>
+      </div>
     </div>
+
+    <!-- Tab: Preset Themes -->
+    <div id="tab-presets" class="tab-content active">
+      <div id="theme-grid" class="theme-grid">
+        <!-- Theme cards will be dynamically generated -->
+      </div>
+    </div>
+
+    <!-- Tab: Custom Theme Creator -->
+    <div id="tab-custom" class="tab-content">
+      <div class="custom-creator">
+        <h3>Create Custom Theme</h3>
+        
+        <div class="color-input-group">
+          <label for="bg-color">Background</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="bg-color" value="#ffffff">
+            <input type="text" id="bg-color-text" value="#ffffff" placeholder="#ffffff">
+          </div>
+        </div>
+
+        <div class="color-input-group">
+          <label for="text-color">Text</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="text-color" value="#333333">
+            <input type="text" id="text-color-text" value="#333333" placeholder="#333333">
+            <div class="contrast-badge" id="text-contrast">AA</div>
+          </div>
+        </div>
+
+        <div class="color-input-group">
+          <label for="primary-color">Primary</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="primary-color" value="#4a90e2">
+            <input type="text" id="primary-color-text" value="#4a90e2" placeholder="#4a90e2">
+          </div>
+        </div>
+
+        <div class="color-input-group">
+          <label for="secondary-color">Secondary</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="secondary-color" value="#f5f5f5">
+            <input type="text" id="secondary-color-text" value="#f5f5f5" placeholder="#f5f5f5">
+          </div>
+        </div>
+
+        <div class="color-input-group">
+          <label for="accent-color">Accent</label>
+          <div class="color-input-wrapper">
+            <input type="color" id="accent-color" value="#ff6b6b">
+            <input type="text" id="accent-color-text" value="#ff6b6b" placeholder="#ff6b6b">
+          </div>
+        </div>
+
+        <div class="harmony-section">
+          <h4>Color Harmony Generator</h4>
+          <div class="harmony-buttons">
+            <button class="btn btn-harmony" data-harmony="complementary">Complementary</button>
+            <button class="btn btn-harmony" data-harmony="analogous">Analogous</button>
+            <button class="btn btn-harmony" data-harmony="triadic">Triadic</button>
+            <button class="btn btn-harmony" data-harmony="tetradic">Tetradic</button>
+            <button class="btn btn-harmony" data-harmony="monochromatic">Monochromatic</button>
+          </div>
+        </div>
+
+        <div class="custom-preview" id="custom-preview">
+          <h4>Preview</h4>
+          <div class="preview-content">
+            <h1>Heading 1</h1>
+            <p>This is sample text to preview your theme.</p>
+            <button class="preview-btn">Button</button>
+            <a href="#" class="preview-link">Link Example</a>
+          </div>
+        </div>
+
+        <div class="custom-actions">
+          <button id="apply-custom-btn" class="btn btn-primary">Apply Custom Theme</button>
+          <button id="save-custom-btn" class="btn btn-success">Save Custom Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Extract Colors from Page -->
+    <div id="tab-extract" class="tab-content">
+      <div class="extract-section">
+        <h3>Extract Colors from Current Page</h3>
+        <p class="extract-description">Automatically extract and analyze colors from the current webpage</p>
+        
+        <button id="extract-colors-btn" class="btn btn-primary">🔍 Extract Colors</button>
+        
+        <div id="extracted-colors" class="extracted-colors"></div>
+        
+        <div id="extracted-palette" class="extracted-palette"></div>
+        
+        <button id="apply-extracted-btn" class="btn btn-success" style="display:none;">Apply Extracted Theme</button>
+      </div>
+    </div>
+
+    <!-- Tab: AI Studio -->
+    <div id="tab-ai" class="tab-content">
+      <div class="ai-section">
+        <h3>🤖 AI-Powered Color Studio</h3>
+        
+        <div class="ai-feature">
+          <h4>Smart Theme Generator</h4>
+          <p>Generate themes based on mood and preferences</p>
+          <div class="mood-selector">
+            <button class="mood-btn" data-mood="professional">Professional</button>
+            <button class="mood-btn" data-mood="energetic">Energetic</button>
+            <button class="mood-btn" data-mood="calm">Calm</button>
+            <button class="mood-btn" data-mood="playful">Playful</button>
+            <button class="mood-btn" data-mood="elegant">Elegant</button>
+            <button class="mood-btn" data-mood="bold">Bold</button>
+          </div>
+        </div>
+
+        <div class="ai-feature">
+          <h4>Accessibility Optimizer</h4>
+          <p>Fix contrast issues automatically</p>
+          <button id="optimize-contrast-btn" class="btn btn-primary">⚡ Auto-Fix Contrast</button>
+          <div id="accessibility-report"></div>
+        </div>
+
+        <div class="ai-feature">
+          <h4>Color from Description</h4>
+          <p>Describe your desired theme in words</p>
+          <textarea id="theme-description" placeholder="e.g., 'A modern dark theme with purple accents and high contrast'"></textarea>
+          <button id="generate-from-description-btn" class="btn btn-primary">Generate Theme</button>
+        </div>
+
+        <div class="ai-feature">
+          <h4>Smart Gradient Generator</h4>
+          <p>Create beautiful gradients with AI assistance</p>
+          <select id="gradient-direction">
+            <option value="135deg">Diagonal ↘</option>
+            <option value="90deg">Horizontal →</option>
+            <option value="180deg">Vertical ↓</option>
+            <option value="45deg">Diagonal ↗</option>
+          </select>
+          <button id="generate-gradient-btn" class="btn btn-primary">Generate Gradient</button>
+          <div id="gradient-preview"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Global Actions -->
     <div class="actions">
-      <button id="reset-btn" class="btn btn-secondary">Reset to Original</button>
+      <button id="highlight-btn" class="btn btn-secondary">👁️ Highlight Elements</button>
+      <button id="reset-btn" class="btn btn-secondary">🔄 Reset</button>
+      <button id="export-btn" class="btn btn-secondary">📥 Export</button>
+      <button id="import-btn" class="btn btn-secondary">📤 Import</button>
     </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
   </div>
+
+  <script src="colorUtils.js"></script>
+  <script src="aiEngine.js"></script>
   <script src="themes.js"></script>
   <script src="popup.js"></script>
 </body>

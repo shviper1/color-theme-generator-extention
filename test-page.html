@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Theme Extension - Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 30px 0 15px;
+            color: #667eea;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+            color: #764ba2;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        button,
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            border-color: #667eea;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffc107;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        ul,
+        ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Advanced Color Theme Studio</h1>
+            <p>Test page for demonstrating theme capabilities</p>
+        </header>
+
+        <section>
+            <h2>Welcome to the Test Page!</h2>
+            <p>
+                This page is designed to showcase all the features of the <strong>Advanced Color Theme Studio</strong>
+                extension.
+                Use the extension popup to apply different themes and see how this page transforms!
+            </p>
+
+            <div class="alert alert-info">
+                <strong>💡 Tip:</strong> Click the extension icon in your Chrome toolbar to get started. Try different
+                preset themes,
+                create your own custom theme, or use the AI features!
+            </div>
+        </section>
+
+        <section>
+            <h2>Typography Examples</h2>
+
+            <h3>Heading Level 3</h3>
+            <p>
+                This is a regular paragraph with some <a href="#">inline link</a> and <span
+                    class="highlight">highlighted text</span>.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Notice how the text color, links, and
+                highlights change
+                with different themes.
+            </p>
+
+            <blockquote>
+                "Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
+            </blockquote>
+
+            <h3>Lists</h3>
+            <ul>
+                <li>Try the preset themes in the Presets tab</li>
+                <li>Create custom themes using the Custom Creator</li>
+                <li>Extract colors from this page in the Extract tab</li>
+                <li>Use AI features to generate smart themes</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Interactive Elements</h2>
+
+            <h3>Buttons</h3>
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-danger">Danger Button</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Cards & Grid Layout</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>Feature 1</h3>
+                    <p>16+ beautiful preset themes to choose from instantly.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Feature 2</h3>
+                    <p>AI-powered color harmony generator with 5 modes.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Feature 3</h3>
+                    <p>WCAG accessibility checker with auto-fix feature.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Feature 4</h3>
+                    <p>Extract and analyze colors from any webpage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Form Elements</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="theme">Favorite Theme</label>
+                    <select id="theme">
+                        <option>Light & Fresh</option>
+                        <option>Dark & Modern</option>
+                        <option>Pastel Dream</option>
+                        <option>Neon Nights</option>
+                        <option>Ocean Breeze</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" placeholder="Tell us what you think..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Alerts & Cards</h2>
+
+            <div class="alert alert-success">
+                <strong>✓ Success!</strong> Your theme has been applied successfully.
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Warning:</strong> This theme may have contrast issues on some elements.
+            </div>
+
+            <div class="card">
+                <h3>Card Component</h3>
+                <p>Cards are great for organizing content. This card will adapt its colors based on the selected theme.
+                </p>
+                <a href="#">Learn more →</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Data Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Theme Name</th>
+                        <th>Type</th>
+                        <th>Colors</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Light & Fresh</td>
+                        <td>Light</td>
+                        <td>5</td>
+                        <td>✓ Active</td>
+                    </tr>
+                    <tr>
+                        <td>Dark & Modern</td>
+                        <td>Dark</td>
+                        <td>5</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Neon Nights</td>
+                        <td>Dark</td>
+                        <td>5</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Ocean Breeze</td>
+                        <td>Light</td>
+                        <td>5</td>
+                        <td>Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>How to Test</h2>
+            <ol>
+                <li><strong>Open the extension popup</strong> by clicking the icon in your Chrome toolbar</li>
+                <li><strong>Try preset themes</strong> in the Presets tab - click any theme card</li>
+                <li><strong>Create custom themes</strong> in the Custom tab - use the color pickers</li>
+                <li><strong>Use color harmony</strong> - click Complementary, Analogous, or Triadic buttons</li>
+                <li><strong>Extract colors</strong> from this page in the Extract tab</li>
+                <li><strong>Try AI features</strong> - select a mood or describe your ideal theme</li>
+                <li><strong>Check accessibility</strong> - use the Auto-Fix Contrast feature</li>
+                <li><strong>Highlight elements</strong> - see which page elements are affected</li>
+            </ol>
+        </section>
+
+        <footer>
+            <p><strong>Advanced Color Theme Studio v2.0</strong></p>
+            <p>Made with ❤️ and 🎨 | <a href="#">Documentation</a> | <a href="#">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactivity for testing
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log('Button clicked:', this.textContent);
+            });
+        });
+
+        document.querySelector('form')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submitted! (This is just a demo)');
+        });
+    </script>
+</body>
+
+</html>
